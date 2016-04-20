@@ -1,0 +1,29 @@
+<div class="container">
+<h1>New Product</h1>
+<% if flash[:errors] %>
+<% flash[:errors].each do |error| %>
+	<%= error %> <br>
+<% end %>
+<% end %>
+<form action='/products/create' method='post'>
+<div class="form-group">
+	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	<label>Name:</label>
+	<input type='text' name='product[name]'>
+	<label>Description:</label>
+	<input type='text' name='product[description]'>
+	<label>Price:</label>
+	<input type='text' name='product[price]'>
+	<label>Category:</label>
+	<select name="product[category_id]" value="Pick a category">
+	<% @categories.each do |category| %>
+	<option value="<%= category.id %>"><%= category.name %></option>
+
+	<% end %>
+	</select>
+	
+	<input type='submit' value='Create'>
+</div>
+</form>
+<a href='/products'>Back</a>
+</div>

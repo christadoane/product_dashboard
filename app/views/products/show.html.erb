@@ -1,0 +1,9 @@
+<div class="container">
+<h1>Product Description Page</h1>
+<p>Name: <%= @product.name %></p>
+<p>Description: <%= @product.description %></p>
+<p>Price: $<%= @product.price %></p>
+<p>Category: <%= @product.category.name %></p>
+<a href="/products/<%= @product.id %>/edit" >Edit</a>
+<a href="/products">Back</a>
+</div>
